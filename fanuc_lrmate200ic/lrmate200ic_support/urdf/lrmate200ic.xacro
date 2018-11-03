@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<robot name="lrmate200ic" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find lrmate200ic_support)/urdf/lrmate200ic_macro.xacro"/>
+  <xacro:lrmate200ic prefix="" claw_base_length="0.08" claw_hand_depth="0.02" claw_finger_length="0.08"/>
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find lrmate200ic_support)/urdf/lrmate200ic_gazebo.xacro"/>
+  <xacro:lrmate200ic_gazebo prefix=""/>
+
+</robot>

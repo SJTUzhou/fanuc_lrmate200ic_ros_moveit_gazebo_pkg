@@ -1,0 +1,20 @@
+<launch>
+    <arg name="px"/>
+    <arg name="py"/>
+    <arg name="pz"/>
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+    <arg name="p_gripper" default="0.0"/>
+
+    <node name="set_lrmate200ic_pose" pkg="lrmate200ic_planner" type="set_lrmate200ic_pose.py" output="screen">
+        <param name="roll" value="$(arg roll)" type="double"/>
+        <param name="pitch" value="$(arg pitch)" type="double"/>
+        <param name="yaw" value="$(arg yaw)" type="double"/>
+        <param name="px" value="$(arg px)" type="double"/>
+        <param name="py" value="$(arg py)" type="double"/>
+        <param name="pz" value="$(arg pz)" type="double"/>
+        <param name="gripper_position" value="$(arg p_gripper)" type="double"/>
+    </node>
+    
+</launch>
