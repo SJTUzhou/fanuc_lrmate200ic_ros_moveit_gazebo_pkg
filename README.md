@@ -1,1 +1,2 @@
-# fanuc_lrmate200ic_ros_pkg
+This is a meta package.
+This package realizes the simulation in gazebo controlled by rviz.
