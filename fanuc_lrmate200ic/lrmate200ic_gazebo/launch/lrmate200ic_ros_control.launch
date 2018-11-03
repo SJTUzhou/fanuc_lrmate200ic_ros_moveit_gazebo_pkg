@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find lrmate200ic_gazebo)/launch/lrmate200ic_world.launch"/>
+
+    <include file="$(find lrmate200ic_gazebo)/launch/joint_states_controller.launch"/>
+
+    <include file="$(find lrmate200ic_gazebo)/launch/joint_position_controller.launch"/>
+    
+    <param name="robot_description" command="cat $(find lrmate200ic_support)/urdf/lrmate200ic.urdf"/>
+</launch>
+
+<!--check_command: rostopic pub /lrmate200ic/joint3_position_controller/command std_msgs/Float64 1.5-->

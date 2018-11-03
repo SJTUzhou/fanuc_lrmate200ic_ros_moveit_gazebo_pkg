@@ -1,0 +1,14 @@
+<launch>
+
+    <include file="$(find lrmate200ic_gazebo)/launch/lrmate200ic_world.launch"/>
+
+    <include file="$(find lrmate200ic_gazebo)/launch/joint_states_controller.launch"/>
+
+    <include file="$(find lrmate200ic_gazebo)/launch/trajectory_controller.launch"/>
+
+    <param name="robot_description" command="cat $(find lrmate200ic_support)/urdf/lrmate200ic.urdf"/>
+
+    <!--remap joint states from /joint_states to /lrmate200ic/joint_states -->
+    <node name="joint_states_remapper" pkg="lrmate200ic_gazebo" type="remap_joint_tf.py"/>
+
+</launch>

@@ -1,0 +1,6 @@
+<launch>
+    <rosparam file="$(find lrmate200ic_gazebo)/config/trajectory_controller.yaml" command="load"/>
+
+    <node name="trajectory_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/lrmate200ic" args="manipulator_controller gripper_controller"/>
+</launch>

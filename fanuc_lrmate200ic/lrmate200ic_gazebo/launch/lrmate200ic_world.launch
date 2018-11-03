@@ -1,0 +1,18 @@
+<launch>
+    <!--load the default world into gazebo-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find lrmate200ic_gazebo)/worlds/lrmate200ic.world"/>
+        <!-- more default parameters can be changed here -->
+    </include>
+
+    <!--format the xacro file to urdf file-->
+    <!--
+    <node name="xacro_urdf_changer" pkg="xacro" type="xacro" args="$(find lrmate200ic_support)/urdf/lrmate200ic.xacro -o $(find lrmate200ic_support)/urdf/lrmate200ic.urdf"/>
+    -->
+    
+    <!--load the robot to the param server-->
+    <param name="robot_description" command="cat $(find my_fanuc_lrmate200ic_support)/urdf/lrmate200ic.urdf"/>
+
+    <!--load the robot to gazebo-->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(find lrmate200ic_support)/urdf/lrmate200ic.urdf -urdf -x 0 -y 0 -z 0 -model lrmate200ic"/>
+</launch>
